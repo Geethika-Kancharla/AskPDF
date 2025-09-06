@@ -40,7 +40,7 @@ export default function PDFQAInterface() {
       const formData = new FormData();
       formData.append('pdf', file);
 
-      const response = await fetch('/api/upload-pdf', {
+      const response = await fetch('http://localhost:5000/api/upload-pdf', {
         method: 'POST',
         body: formData,
       });
@@ -70,7 +70,7 @@ export default function PDFQAInterface() {
     setError('');
 
     try {
-      const response = await fetch('/api/ask-question', {
+      const response = await fetch('http://localhost:5000/api/ask-question', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -193,7 +193,7 @@ export default function PDFQAInterface() {
                 value={question}
                 onChange={(e) => setQuestion(e.target.value)}
                 placeholder="Enter your question about the PDF content..."
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                className="w-full text-black p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
                 rows={4}
                 disabled={!uploadedFile || isAsking}
               />
